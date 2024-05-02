@@ -8,6 +8,8 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_EXTENSIONS OFF)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
+# find_package PythonInterp PythonLibs 在新版本上已经“Deprecated”了，现在用 find_package FindPython 系列命令了。
+# 具体可看：https://cmake.org/cmake/help/v3.15/module/FindPython3.html
 find_package(PythonInterp REQUIRED)
 find_package(PythonLibs ${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR} EXACT REQUIRED)
 
