@@ -33,7 +33,14 @@ execute_process(
   OUTPUT_STRIP_TRAILING_WHITESPACE
   )
 
+# 在 CMake 中，模块（Module）是一种用于扩展和增强 CMake 的功能的机制。模块是包含有预定义的命令、宏、函数或变量的脚本文件。通过加载
+# （include）模块，可以在 CMake 构建系统中使用这些预定义的功能，从而简化构建过程和提供更高级的功能。
+
+# FindPackageHandleStandardArgs 是 cmake 内置的 module，这个 module 内部提供了一个 find_package_handle_standard_args 函数。
+# 需要先使用 include 命令引入这个 FindPackageHandleStandardArgs module ，才能使用 find_package_handle_standard_args 函数。
 include(FindPackageHandleStandardArgs)
+# find_package_handle_standard_args 函数的作用：当 REQUIRED_VARS 的变量都有值时，将 FOUND_VAR 设置为 True。
+# 具体可参考：https://cmake.org/cmake/help/v3.15/module/FindPackageHandleStandardArgs.html
 find_package_handle_standard_args(NumPy
   FOUND_VAR NumPy_FOUND
   REQUIRED_VARS NumPy
